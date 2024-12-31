@@ -21,7 +21,7 @@ jobs:
 
       - name: Modify last update
         run: |
-          d=date '+%Y-%m-%dT%H:%M:%SZ'
+          d=$(date '+%Y-%m-%dT%H:%M:%SZ')
           echo $d > LAST_UPDATED
 
       - name: Commit changes
@@ -41,7 +41,7 @@ jobs:
           arr[8]="chore(bot): 🟩 auto commit"
           arr[9]="chore(bot): 👻 auto commit"
 
-          rand=$[$RANDOM % ${#arr[@]}]
+          rand=$((RANDOM % ${#arr[@]}))
 
           git commit -m "${arr[$rand]}"
 
